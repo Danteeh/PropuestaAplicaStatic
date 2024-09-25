@@ -1,0 +1,99 @@
+/* Tipografía y ajustes generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start; /* Cambiar align-items para que el contenido esté hacia arriba */
+    align-items: flex-start;
+    height: 100vh;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 40px; /* Añadir espacio en la parte superior del contenedor */
+}
+
+/* Agrupación de entradas */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+/* Estilo de campos de entrada y selectores */
+input, select {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus, select:focus {
+    border: 1px solid #4CAF50;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Botón */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px; /* Más espacio encima del botón */
+    margin-bottom: 20px; /* Más espacio debajo del botón */
+}
+
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Salidas de información */
+.output {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Título principal */
+h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 30px 0; /* Eliminar márgenes laterales y mantener margen inferior */
+    padding: 0;
+    font-size: 24px; /* Tamaño de fuente más grande para que sea más prominente */
+    letter-spacing: 1px; /* Un poco de espacio entre las letras para mejorar legibilidad */
+}

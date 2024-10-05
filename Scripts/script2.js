@@ -54,7 +54,7 @@ document.getElementById("cultural-generico").addEventListener("change", function
     document.getElementById("departamento-section").style.display = (seleccion === "departamento") ? "block" : "none";
 });
 
-// Guardar datos en JSON
+// Guardar datos en Google Sheets
 document.getElementById("guardar-json-btn").addEventListener("click", function() {
     let nombreProfesor = document.getElementById("nombre-profesor").value;
 
@@ -63,26 +63,37 @@ document.getElementById("guardar-json-btn").addEventListener("click", function()
         return;
     }
 
-    // Verificar que no haya un profesor con el mismo nombre
-    if (profesoresData.some(prof => prof.nombre === nombreProfesor)) {
-        alert("Ya existe un profesor con este nombre.");
-        return;
-    }
-
     // Obtener los datos del formulario
     let puntajeTotal = document.getElementById("puntaje-total").innerText;
 
-    // Crear objeto profesor
-    let profesor = {
+    // Crear objeto para enviar
+    let data = {
         nombre: nombreProfesor,
         puntaje: puntajeTotal
     };
 
-    // Guardar en la lista
-    profesoresData.push(profesor);
-
-    alert("Datos guardados en JSON.");
+    // Enviar datos a Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbxVgSG8Xy96RFtZhjwQx0ZmtHecWnz5q19akfDgG4znUYBzDi80kZPZ3K5P41mDZjNHGw/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            if (result.result === 'success') {
+                alert("Datos guardados en Google Sheets.");
+            } else {
+                alert("Error al guardar los datos en Google Sheets.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Error al enviar los datos.");
+        });
 });
+
 
 // Generar Excel desde JSON
 document.getElementById("generar-excel-btn").addEventListener("click", function() {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta puntajes aplica</title>
+    <link rel="stylesheet" href="Styles/estilos.css">
+    <script src="Scripts/Cacular.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<h2>Propuesta aplica</h2>
+
+<div class="container">
+    <!-- Entradas de texto -->
+    <div class="input-group">
+        <label for="input1">Años de experiencia:</label>
+        <input type="text" id="input1" placeholder="Ingresa un valor">
+    </div>
+
+    <!-- Combo box 1 -->
+    <div class="input-group">
+        <label for="combo1">Estudios pregrado:</label>
+        <select id="combo1">
+            <option value="1">Tecnica</option>
+            <option value="2">Normalista/Tecnologo</option>
+            <option value="3">Licenciaturia u orientacion</option>
+            <option value ="4">No Licenciado</option>
+            <option value="5">No posee</option>
+        </select>
+    </div>
+    <!-- Combo box 2 -->
+    <div class="input-group">
+        <label for="combo2">Estudios posgrado:</label>
+        <select id="combo2">
+            <option value="1">Especialización</option>
+            <option value="2">Maestría</option>
+            <option value="3">Doctorado</option>
+            <option value="4">No posee</option>
+        </select>
+    </div>
+    <div id="outputE" class="output">Equivalencias:</div>
+    <!-- Botón de calcular -->
+    <button onclick="calcular()">Calcular</button>
+
+    <!-- Casillas de salida de información -->
+    <div id="output1" class="output">Experiencia:</div>
+    <div id="output2" class="output">Estudios realizados pregrado:</div>
+    <div id="output3" class="output">Estudios realizados postgrado:</div>
+    <div id="output4" class="output">Puntaje equivalencias:</div>
+    <div id="output5" class="output">Total:</div>
+</div>
+</body>
+</html>

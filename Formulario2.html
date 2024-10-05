@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Cálculo de Puntos</title>
+    <link rel="stylesheet" href="Styles/Styles2.css">
+</head>
+<body>
+<div class="container">
+    <h1>Formulario de Cálculo de Puntos para Zonas Urbanas y Rurales</h1>
+
+    <!-- Casilla: Nombre del profesor -->
+    <section>
+        <label for="nombre-profesor">Nombre del Profesor:</label>
+        <input type="text" id="nombre-profesor" placeholder="Nombre completo del profesor">
+    </section>
+
+    <!-- Sección: Educación -->
+    <section>
+        <h2>Educación</h2>
+        <label for="educacion-minima">Educación Formal Mínima:</label>
+        <select id="educacion-minima">
+            <option value="0">No aplica</option>
+            <option value="5">Títulos profesionales no licenciados en curso de pedagogía - 5 puntos</option>
+            <option value="8">Normalista Superior o Tecnólogo en Educación - 8 puntos</option>
+            <option value="10">Licenciado en Ciencias de la Educación - 10 puntos</option>
+        </select>
+
+        <label for="educacion-adicional">Educación Formal Adicional:</label>
+        <select id="educacion-adicional">
+            <option value="0">No aplica</option>
+            <option value="10">Especialización (2+ años) - 10 puntos</option>
+            <option value="18">Maestría (3+ años) - 18 puntos</option>
+            <option value="25">Doctorado - 25 puntos</option>
+        </select>
+
+        <label for="educacion-noformal">Educación No Formal:</label>
+        <select id="educacion-noformal">
+            <option value="0">No aplica</option>
+            <option value="1">Entre 24 y 47 horas - 1 punto</option>
+            <option value="2">Entre 48 y 71 horas - 2 puntos</option>
+            <option value="3">Entre 72 y 95 horas - 3 puntos</option>
+            <option value="4">Más de 96 horas - 4 puntos</option>
+        </select>
+    </section>
+
+    <!-- Sección: Experiencia -->
+    <section>
+        <h2>Experiencia</h2>
+        <label for="experiencia-local">Experiencia Docente Local:</label>
+        <input type="number" id="experiencia-local" placeholder="Años de experiencia local" min="0">
+
+        <label for="experiencia-otras">Experiencia en Otras Zonas:</label>
+        <input type="number" id="experiencia-otras" placeholder="Años de experiencia en otras zonas" min="0">
+    </section>
+
+    <!-- Sección: Culturales y Genéricos -->
+    <section>
+        <h2>Culturales y Genéricos</h2>
+
+        <!-- Selección de la modalidad -->
+        <label for="cultural-generico">Seleccione una opción:</label>
+        <select id="cultural-generico">
+            <option value="">Seleccione</option>
+            <option value="municipio">Por Municipio</option>
+            <option value="departamento">Por Departamento</option>
+            <option value="0">No aplica</option>
+        </select>
+
+        <!-- Opciones dinámicas para Por Municipio -->
+        <div id="municipio-section" class="dynamic-section" style="display: none;">
+            <h3>Por Municipio</h3>
+            <label for="nacimiento-municipio">Nacimiento:</label>
+            <select id="nacimiento-municipio">
+                <option value="0">No aplica</option>
+                <option value="10">10 puntos</option>
+            </select>
+
+            <label for="educacion-media-municipio">Educación Media Académica o Normalista Superior:</label>
+            <select id="educacion-media-municipio">
+                <option value="0">No aplica</option>
+                <option value="5">5 puntos</option>
+            </select>
+
+            <label for="residencia-municipio">Residencia:</label>
+            <select id="residencia-municipio">
+                <option value="0">No aplica</option>
+                <option value="5">5 puntos</option>
+            </select>
+
+            <label for="experiencia-municipio">Experiencia docente o vinculación (2 años mínimo):</label>
+            <select id="experiencia-municipio">
+                <option value="0">No aplica</option>
+                <option value="5">5 puntos</option>
+            </select>
+        </div>
+
+        <!-- Opciones dinámicas para Por Departamento -->
+        <div id="departamento-section" class="dynamic-section" style="display: none;">
+            <h3>Por Departamento</h3>
+            <label for="nacimiento-departamento">Nacimiento:</label>
+            <select id="nacimiento-departamento">
+                <option value="0">No aplica</option>
+                <option value="5">5 puntos</option>
+            </select>
+
+            <label for="educacion-media-departamento">Educación Media Académica o Normalista Superior:</label>
+            <select id="educacion-media-departamento">
+                <option value="0">No aplica</option>
+                <option value="3">3 puntos</option>
+            </select>
+
+            <label for="residencia-departamento">Residencia:</label>
+            <select id="residencia-departamento">
+                <option value="0">No aplica</option>
+                <option value="3">3 puntos</option>
+            </select>
+
+            <label for="experiencia-departamento">Experiencia docente o vinculación (2 años mínimo):</label>
+            <select id="experiencia-departamento">
+                <option value="0">No aplica</option>
+                <option value="4">4 puntos</option>
+            </select>
+        </div>
+
+        <!-- Quintiles Superiores -->
+        <label for="quintil">Quintiles Superiores:</label>
+        <select id="quintil">
+            <option value="0">No aplica</option>
+            <option value="10">Quintil 1 o 2 - 10 puntos</option>
+            <option value="8">Quintil 3 - 8 puntos</option>
+            <option value="6">Quintil 4 - 6 puntos</option>
+            <option value="4">Quintil 5 - 4 puntos</option>
+        </select>
+    </section>
+
+    <button id="calcular-btn">Calcular Puntos</button>
+    <h3>Puntaje Total: <span id="puntaje-total">0</span></h3>
+
+    <button id="guardar-json-btn">Guardar Datos en JSON</button>
+    <button id="generar-excel-btn">Generar Excel</button>
+</div>
+
+<script src="/Scripts/script2.js"></script>
+</body>
+</html>
